@@ -87,7 +87,6 @@ We conducted a comprehensive evaluation of Atria Dawn Preview. The table below p
 | Terminal-Bench 2.1 | 78.3 | 78.7 | - | 89.3 | 85.4 | 85.1 | 90.2 |
 | GDPval | 66.4 | 52.7 | 65.5 | 75.9 | 68.2 | 69.6 | 80.0 |
 | SWE-bench Pro | 59.6 | 58.3 | 61.6 | 65.1 | 60.3 | 61.4 | 74.7 |
-| NL2Repo | 51.4 | 58.2 | 60.4 | 62.1 | 59.3 | 67.9 | 76.5 |
 | JobBench | 50.3 | 54.1 | 54.3 | 52.7 | 58.2 | 45.4 | 68.0 |
 
 </div>
