@@ -38,7 +38,7 @@
   </a>
 </div>
 <p align="center">
-  <a href="https://atria-asi.ai/">🖥️<b>官方网站</b></a>
+  <a href="https://atria-asi.ai/">🖥️<b>Website</b></a>
   <a href="https://github.com/atria-asi/Atria-Dawn-Preview">💬<b>GitHub</b></a>
 </p>
 
