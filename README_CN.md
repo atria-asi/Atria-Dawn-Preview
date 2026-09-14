@@ -122,6 +122,171 @@ Atria Dawn Preview 支持本地部署与在线调用。有关在线调用，请�
 - [SGLang](https://github.com/sgl-project/sglang) (v0.5.13.post1+) — 参考 [cookbook](https://cookbook.sglang.io/autoregressive/GLM/GLM-5.2)
 - [vLLM](https://github.com/vllm-project/vllm) (v0.23.0+) — 参考 [recipes](https://recipes.vllm.ai/zai-org/GLM-5.2)
 
+### Codex
+
+将自定义 provider 添加到 `~/.codex/config.toml`。Codex 使用 Responses API。
+
+```toml
+model = "Atria-Dawn-Preview"
+model_provider = "atria"
+
+[model_providers.atria]
+name = "Atria"
+base_url = "https://api.atria-asi.ai/v1"
+env_key = "ATRIA_API_KEY"
+wire_api = "responses"
+```
+
+#### 将输入限制为纯文本
+
+`Atria-Dawn-Preview` 只接受文本输入。Codex 默认会假设每个模型都支持多模态输入，并会附加通过 `-i/--image` 或 TUI 粘贴的图片；而该端点会因此返回 `400 Atria-Dawn-Preview is not a multimodal model` 错误。需要声明模型支持的输入模态，让 Codex 在客户端直接移除图片输入。
+
+##### 第 1 步：创建模型目录文件
+
+将下面的内容保存为 `~/.codex/atria-catalog.json`：
+
+```json
+{
+  "models": [
+    {
+      "slug": "Atria-Dawn-Preview",
+      "display_name": "Atria-Dawn-Preview",
+      "base_instructions": "你是运行在 Codex CLI 中的编程代理。你将在共享工作区中与用户协作，完成软件工程目标。\n\n你只能接收文本输入。你无法获取图片、截图、PDF 或其他二进制附件。如果用户提到你无法查看的附件，请直接说明这一点，并要求用户粘贴相关文本。",
+      "supported_reasoning_levels": [
+        { "effort": "low", "description": "快速响应，使用较轻量的推理" },
+        { "effort": "medium", "description": "在速度和推理深度之间保持平衡" },
+        { "effort": "high", "description": "为复杂问题提供更深入的推理" }
+      ],
+      "shell_type": "unified_exec",
+      "visibility": "list",
+      "supported_in_api": true,
+      "priority": 1,
+      "support_verbosity": false,
+      "truncation_policy": { "mode": "tokens", "limit": 10000 },
+      "experimental_supported_tools": [],
+      "context_window": 256000,
+      "max_context_window": 256000,
+      "input_modalities": ["text"]
+    }
+  ]
+}
+```
+
+`"input_modalities": ["text"]` 是禁用多模态输入的设置。
+
+将 `context_window` / `max_context_window` 设置为模型实际支持的上限。Codex 会使用这些值来规划提示词，并判断何时自动压缩上下文。如果不设置，Codex 会采用较为保守的默认值，从而浪费可用的上下文空间。
+
+解析器要求其他所有字段都必须存在。缺少任何一个字段都会导致 `missing field <name>` 错误，Codex 也将无法启动。
+
+##### 第 2 步：让配置指向该文件
+
+```toml
+model = "Atria-Dawn-Preview"
+model_provider = "atria"
+model_catalog_json = "~/.codex/atria-catalog.json"
+
+[features]
+view_image = false
+
+[model_providers.atria]
+name = "Atria"
+base_url = "https://api.atria-asi.ai/v1"
+env_key = "ATRIA_API_KEY"
+wire_api = "responses"
+```
+
+`features.view_image = false` 是可选设置。它会移除图像查看工具，避免模型尝试调用一个会被拒绝的工具。
+
+> **重要：** `model_catalog_json` 会**替换**模型目录，而不是与其合并。任何未列在该文件中的模型都会回退到默认元数据，而默认元数据会假设模型支持多模态输入，并记录 `warning: Model metadata for <slug> not found` 警告。如果你使用 `-m` 切换模型，或通过编辑 `model` 切换模型，请将该模型也添加到同一个文件中，否则纯文本限制不会应用于该模型。
+
+要求 Codex CLI 版本为 0.154.0 或更高版本。
+
+### Claude Code
+
+```python
+#!/usr/bin/env python3
+"""
+PreToolUse 钩子：阻止 Read 工具读取 PDF 和图片文件。
+"""
+import json
+import sys
+
+
+IMAGE_EXTENSIONS = (
+    ".apng",
+    ".avif",
+    ".bmp",
+    ".gif",
+    ".heic",
+    ".heif",
+    ".ico",
+    ".jfif",
+    ".jpeg",
+    ".jpg",
+    ".jxl",
+    ".png",
+    ".svg",
+    ".tif",
+    ".tiff",
+    ".webp",
+)
+
+
+def main():
+    hook_input = json.loads(sys.stdin.read())
+    file_path = hook_input.get("tool_input", {}).get("file_path", "")
+
+    if file_path.lower().endswith(".pdf"):
+        reason = "不允许使用 Read 工具读取 PDF 文件。"
+    elif file_path.lower().endswith(IMAGE_EXTENSIONS):
+        reason = "不允许使用 Read 工具读取图片文件。"
+    else:
+        sys.exit(0)
+
+    output = {
+        "hookSpecificOutput": {
+            "hookEventName": "PreToolUse",
+            "permissionDecision": "deny",
+            "permissionDecisionReason": reason,
+        }
+    }
+    print(json.dumps(output, ensure_ascii=False))
+
+    sys.exit(0)
+
+
+if __name__ == "__main__":
+    main()
+```
+
+请将上面的代码保存为 `${Target_dir}/block_pdf_image_read.py`，并确保使用绝对路径。
+
+将它添加到 `~/claude_dir/settings.json` 中。
+
+这样可以在 `PreToolUse` 阶段拦截图片、PDF 等多模态输入。
+
+```bash
+"hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Read",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 ${Target_dir}/block_pdf_image_read.py",
+            "timeout": 5
+          }
+        ]
+      },
+      {
+        "matcher": "",
+        "hooks": []
+      }
+    ]
+}
+```
+
+
 ## 许可证
 
 本仓库的代码和权重依照MIT协议开源。
