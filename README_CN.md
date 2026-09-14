@@ -22,18 +22,23 @@
     <img alt="ModelScope" src="https://img.shields.io/badge/ModelScope-Atria Dawn Preview-blue?logo=ModelScope" style="display: inline-block; vertical-align: middle;"/>
   </a>
 </div>
+
 <div align="center" style="line-height: 1;">
   <a href="https://x.com/AtriaASI" target="_blank" style="margin: 2px;">
-    <img alt="Twitter Follow" src="https://img.shields.io/badge/Twitter-Atria Dawn Preview-blue" style="display: inline-block; vertical-align: middle;"/>
+    <img alt="Twitter Follow" src="https://img.shields.io/badge/Twitter-Atria Dawn Preview-blue?logo=x" style="display: inline-block; vertical-align: middle;"/>
+  </a>
+<a href="https://discord.gg/jT8SDt8up" target="_blank">
+    <img alt="Discord" src="https://img.shields.io/badge/Discord-Atria Dawn Preview-blue?logo=discord" />
   </a>
 </div>
+
 <div align="center" style="line-height: 1;">
   <a href="LICENSE" style="margin: 2px;">
     <img alt="License" src="https://img.shields.io/badge/License-MIT-blue" style="display: inline-block; vertical-align: middle;"/>
   </a>
 </div>
 <p align="center">
-  <a href="https://atria-asi.com/">🖥️<b>官方网站</b></a>
+  <a href="https://atria-asi.ai/">🖥️<b>官方网站</b></a>
   <a href="https://github.com/atria-asi/Atria-Dawn-Preview">💬<b>GitHub</b></a>
 </p>
 
