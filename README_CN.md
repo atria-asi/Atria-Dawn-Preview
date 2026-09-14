@@ -27,8 +27,8 @@
   <a href="https://x.com/AtriaASI" target="_blank" style="margin: 2px;">
     <img alt="Twitter Follow" src="https://img.shields.io/badge/Twitter-Atria Dawn Preview-blue?logo=x" style="display: inline-block; vertical-align: middle;"/>
   </a>
-<a href="https://discord.gg/jT8SDt8up" target="_blank">
-    <img alt="Discord" src="https://img.shields.io/badge/Discord-Atria Dawn Preview-blue?logo=discord" />
+<a href="https://discord.gg/jT8SDt8up" target="_blank" style="margin: 2px;">
+    <img alt="Discord" src="https://img.shields.io/badge/Discord-Atria Dawn Preview-blue?logo=discord" style="display: inline-block; vertical-align: middle;"/>
   </a>
 </div>
 
