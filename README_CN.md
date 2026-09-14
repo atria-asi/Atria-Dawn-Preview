@@ -39,7 +39,7 @@
 
 ## 介绍
 
-Atria Dawn Preview 是由上海人工智能实验室研发的新一代智能体大模型预览版，模型基于744B MoE基座进行训练，面向需要持续理解环境、调用工具并完成多步任务的研究与工程场景。该模型旨在协助用户将开放性问题推进为可执行、可验证和可复现的结果。模型能够结合任务目标与环境反馈，参与问题分析、方案设计、工具调用、代码实现、实验执行、结果分析以及失败恢复等环节。
+Atria Dawn Preview 是由上海人工智能实验室研发的新一代智能体大模型预览版，模型基于744B MoE GLM-5.2基座进行训练，面向需要持续理解环境、调用工具并完成多步任务的研究与工程场景。该模型旨在协助用户将开放性问题推进为可执行、可验证和可复现的结果。模型能够结合任务目标与环境反馈，参与问题分析、方案设计、工具调用、代码实现、实验执行、结果分析以及失败恢复等环节。
 
 Atria Dawn Preview 从以下四个维度赋能智能体任务，重点强化了在科研自动化、办公等真实生产力场景下的端到端交付能力。
 
@@ -103,18 +103,19 @@ Atria Dawn Preview 从以下四个维度赋能智能体任务，重点强化了�
 # 在此添加安装和运行命令。
 ``` -->
 
-## API 与在线使用
+## 部署和在线使用
 
-除本地部署外，Atria Dawn Preview 也提供在线访问方式，便于用户快速进行模型体验、能力评测与应用集成。
+Atria Dawn Preview 支持本地部署与在线调用。有关在线调用，请使用您所在地区对应的服务。
 
-| 访问方式             | 推荐场景                      | 链接                                                                            |
-| ---------------- | ------------------------- | ----------------------------------------------------------------------------- |
-| **Intern-AI 平台** | 国内用户、模型体验、能力评测与应用开发       | [访问 Intern-AI](https://discovery.intern-ai.org.cn/token-plan/home?tabIndex=0) |
-| **ATRIA API**    | API 集成、智能体工作流、科研应用及国际用户访问 | [访问 ATRIA API](https://api.atria-asi.ai/)                                     |
+| 地区                | 使用链接                                                                  | 教程                                                                        |
+| ----------------- | --------------------------------------------------------------------- | ------------------------------------------------------------------------- |
+| **国内**         | [Link](https://discovery.intern-ai.org.cn/token-plan/home?tabIndex=0) | [Tutorial](https://discovery.intern-ai.org.cn/token-plan/home?tabIndex=3) |
+| **海外** | [Link](https://api.atria-asi.ai/)                                     | [Tutorial](https://api.atria-asi.ai/docs)                                 |
 
-国内用户推荐优先使用 **Intern-AI 平台**；其他用户及需要 API 集成的开发者可优先使用 **ATRIA API**。
+如需进行本地部署，请参考以下部署指南。
 
-两种在线方式均可用于模型能力验证、科研工作流构建以及下游智能体应用开发，无需预先完成完整的本地部署。
+- [SGLang](https://github.com/sgl-project/sglang) (v0.5.13.post1+) — see [cookbook](https://cookbook.sglang.io/autoregressive/GLM/GLM-5.2)
+- [vLLM](https://github.com/vllm-project/vllm) (v0.23.0+) — see [recipes](https://recipes.vllm.ai/zai-org/GLM-5.2)
 
 ## 许可证
 
