@@ -16,25 +16,30 @@
 
 <div align="center" style="line-height: 1;">
   <a href="https://huggingface.co/internlm/Atria-Dawn-Preview" target="_blank" style="margin: 2px;">
-    <img alt="Hugging Face" src="https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Atria%20Dawn%20Preview-blue" style="display: inline-block; vertical-align: middle;"/>
+    <img alt="Hugging Face" src="https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Atria Dawn Preview-blue" style="display: inline-block; vertical-align: middle;"/>
   </a>
   <a href="https://www.modelscope.cn/models/Shanghai_AI_Laboratory/Atria-Dawn-Preview" target="_blank" style="margin: 2px;">
-    <img alt="ModelScope" src="https://img.shields.io/badge/ModelScope-Atria%20Dawn%20Preview-blue?logo=ModelScope" style="display: inline-block; vertical-align: middle;"/>
+    <img alt="ModelScope" src="https://img.shields.io/badge/ModelScope-Atria Dawn Preview-blue?logo=ModelScope" style="display: inline-block; vertical-align: middle;"/>
   </a>
 </div>
+
 <div align="center" style="line-height: 1;">
   <a href="https://x.com/AtriaASI" target="_blank" style="margin: 2px;">
-    <img alt="Twitter Follow" src="https://img.shields.io/badge/Twitter-Atria%20Dawn%20Preview-blue" style="display: inline-block; vertical-align: middle;"/>
+    <img alt="Twitter Follow" src="https://img.shields.io/badge/Twitter-Atria Dawn Preview-blue?logo=x" style="display: inline-block; vertical-align: middle;"/>
+  </a>
+<a href="https://discord.gg/jT8SDt8up" target="_blank">
+    <img alt="Discord" src="https://img.shields.io/badge/Discord-Atria Dawn Preview-blue?logo=discord" />
   </a>
 </div>
+
 <div align="center" style="line-height: 1;">
   <a href="LICENSE" style="margin: 2px;">
     <img alt="License" src="https://img.shields.io/badge/License-MIT-blue" style="display: inline-block; vertical-align: middle;"/>
   </a>
 </div>
 <p align="center">
-  <a href="https://atria-asi.com/">🖥️<b>Website</b></a>
-  <a href="https://github.com/atria-asi/Atria-Dawn-Preview"> 💬<b>GitHub</b></a>
+  <a href="https://atria-asi.ai/">🖥️<b>官方网站</b></a>
+  <a href="https://github.com/atria-asi/Atria-Dawn-Preview">💬<b>GitHub</b></a>
 </p>
 
 ## Introduction
