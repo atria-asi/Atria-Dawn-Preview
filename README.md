@@ -17,7 +17,6 @@
 **From Research Questions to Verifiable Results**
 
 </div>
-
 <div align="center" style="line-height: 1;">
   <a href="https://huggingface.co/internlm/Atria-Dawn-Preview" target="_blank" style="margin: 2px;">
     <img alt="Hugging Face" src="https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Atria%20Dawn%20Preview-FFD21E?labelColor=555" style="display: inline-block; vertical-align: middle;"/>
