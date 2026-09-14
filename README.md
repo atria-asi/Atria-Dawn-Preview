@@ -58,9 +58,9 @@ Atria Dawn Preview empowers agentic tasks across four dimensions, with a particu
 <div align="center">
 
 | **Model** | **Description** | **Context** | **Hugging Face** | **ModelScope** |
-| :---: | :---: | :---: | :---: |
-| Atria-Dawn-Preview | Instruct model | [Model](https://huggingface.co/internlm/Atria-Dawn-Preview) | [Model](https://www.modelscope.cn/models/Shanghai_AI_Laboratory/Atria-Dawn-Preview) |
-| Atria-Dawn-Preview-FP8 | FP8-quantized Instruct model | [Model](https://huggingface.co/internlm/Atria-Dawn-Preview-FP8) | [Model](https://www.modelscope.cn/models/Shanghai_AI_Laboratory/Atria-Dawn-Preview-FP8) |
+| :---: | :---: | :---: | :---: | :---: |
+| Atria-Dawn-Preview | Instruct model | 256K | [Model](https://huggingface.co/internlm/Atria-Dawn-Preview) | [Model](https://www.modelscope.cn/models/Shanghai_AI_Laboratory/Atria-Dawn-Preview) |
+| Atria-Dawn-Preview-FP8 | FP8-quantized Instruct model | 256K | [Model](https://huggingface.co/internlm/Atria-Dawn-Preview-FP8) | [Model](https://www.modelscope.cn/models/Shanghai_AI_Laboratory/Atria-Dawn-Preview-FP8) |
 
 </div>
 
