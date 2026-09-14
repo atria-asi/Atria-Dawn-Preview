@@ -157,6 +157,167 @@ Use the service endpoint corresponding to your region.
 
 </div>
 
+### Codex
+Add a custom provider to `~/.codex/config.toml`. Codex uses the Responses API.
+
+```toml
+model = "Atria-Dawn-Preview"
+model_provider = "atria"
+[model_providers.atria]
+name = "Atria"
+base_url = "https://api.atria-asi.ai/v1"
+env_key = "ATRIA_API_KEY"
+wire_api = "responses"
+```
+
+#### Restricting input to text only
+
+`Atria-Dawn-Preview` accepts text input only. By default Codex assumes every model is
+multimodal and will attach images from `-i/--image` or a TUI paste, which the endpoint
+rejects with `400 Atria-Dawn-Preview is not a multimodal model`. Declare the model's
+modalities so Codex strips image input on the client side instead.
+
+##### Step 1 — Create a model catalog file
+
+Save this as `~/.codex/atria-catalog.json`:
+
+```json
+{
+  "models": [
+    {
+      "slug": "Atria-Dawn-Preview",
+      "display_name": "Atria-Dawn-Preview",
+      "base_instructions": "You are a coding agent running in the Codex CLI. You collaborate with the user in a shared workspace to accomplish their software engineering goals.\n\nYou can only receive text input. Images, screenshots, PDFs, and other binary attachments are not available to you. If the user refers to an attachment you cannot see, say so plainly and ask them to paste the relevant text instead.",
+      "supported_reasoning_levels": [
+        { "effort": "low", "description": "Fast responses with lighter reasoning" },
+        { "effort": "medium", "description": "Balances speed and reasoning depth" },
+        { "effort": "high", "description": "Greater reasoning depth for complex problems" }
+      ],
+      "shell_type": "unified_exec",
+      "visibility": "list",
+      "supported_in_api": true,
+      "priority": 1,
+      "support_verbosity": false,
+      "truncation_policy": { "mode": "tokens", "limit": 10000 },
+      "experimental_supported_tools": [],
+      "context_window": 256000,
+      "max_context_window": 256000,
+      "input_modalities": ["text"]
+    }
+  ]
+}
+```
+
+`"input_modalities": ["text"]` is the setting that disables multimodal input.
+
+Set `context_window` / `max_context_window` to the model's real limit — Codex uses these
+to budget the prompt and decide when to auto-compact. Without them it falls back to a
+conservative default, which wastes usable context.
+
+All other fields are required by the parser — omitting any one fails with
+`missing field <name>` and Codex will not start.
+
+##### Step 2 — Point your config at it
+
+```toml
+model = "Atria-Dawn-Preview"
+model_provider = "atria"
+model_catalog_json = "~/.codex/atria-catalog.json"
+[features]
+view_image = false
+[model_providers.atria]
+name = "Atria"
+base_url = "https://api.atria-asi.ai/v1"
+env_key = "ATRIA_API_KEY"
+wire_api = "responses"
+```
+
+`features.view_image = false` is optional — it removes the image-viewing tool so the model
+doesn't attempt a call that would be refused.
+
+> **Important:** `model_catalog_json` **replaces** the model catalog, it does not merge
+> with it. Any model not listed in your file falls back to default metadata — which
+> assumes multimodal input — and logs
+> `warning: Model metadata for <slug> not found`. If you switch models with `-m` or by
+> editing `model`, add that model to the same file, or the text-only restriction will not
+> apply to it.
+
+Requires Codex CLI 0.154.0 or later.
+
+### Claude Code
+```Python
+#!/usr/bin/env python3
+"""
+PreToolUse hook: block the Read tool from reading PDF and image files.
+"""
+import json
+import sys
+IMAGE_EXTENSIONS = (
+    ".apng",
+    ".avif",
+    ".bmp",
+    ".gif",
+    ".heic",
+    ".heif",
+    ".ico",
+    ".jfif",
+    ".jpeg",
+    ".jpg",
+    ".jxl",
+    ".png",
+    ".svg",
+    ".tif",
+    ".tiff",
+    ".webp",
+)
+def main():
+    hook_input = json.loads(sys.stdin.read())
+    file_path = hook_input.get("tool_input", {}).get("file_path", "")
+    if file_path.lower().endswith(".pdf"):
+        reason = "Reading PDF files with the Read tool is not allowed."
+    elif file_path.lower().endswith(IMAGE_EXTENSIONS):
+        reason = "Reading image files with the Read tool is not allowed."
+    else:
+        sys.exit(0)
+    output = {
+        "hookSpecificOutput": {
+            "hookEventName": "PreToolUse",
+            "permissionDecision": "deny",
+            "permissionDecisionReason": reason,
+        }
+    }
+    print(json.dumps(output, ensure_ascii=False))
+    sys.exit(0)
+if __name__ == "__main__":
+    main()
+```
+
+Please save the above code script as ${Target_dir}/block_pdf_image_read.py, and be sure to use an absolute path.
+
+Add it to ~/claude_dir/settings.json.
+This can implement interception of multimodal inputs, such as images and PDFs, in PreToolUse.
+```Bash
+"hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Read",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 ${Target_dir}/block_pdf_image_read.py",
+            "timeout": 5
+          }
+        ]
+      },
+      {
+        "matcher": "",
+        "hooks": []
+      }
+    ]
+}
+```
+
+
 ## 📄 License
 
 The code and model weights in this repository are released under the [MIT License](LICENSE).
