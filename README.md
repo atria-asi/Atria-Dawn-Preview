@@ -99,6 +99,19 @@ Add instructions for local inference, deployment, and environment setup here.
 # Add installation and launch commands here.
 ``` -->
 
+## API & Online Access
+
+Atria Dawn Preview is available through hosted access points in addition to local deployment.
+
+| Access                 | Recommended For                                                                    | Link                                                                              |
+| ---------------------- | ---------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
+| **ATRIA API**          | International users, API integration, agentic workflows, and research applications | [Access ATRIA API](https://api.atria-asi.ai/)                                     |
+| **Intern-AI Platform** | Users in China, model access, evaluation, and application development              | [Access Intern-AI](https://discovery.intern-ai.org.cn/token-plan/home?tabIndex=0) |
+
+For general and international access, we recommend the **ATRIA API** as the primary entry point. Users in China may use the **Intern-AI Platform** for convenient access to Atria Dawn Preview.
+
+Both options are designed to support model evaluation, research workflows, and downstream agent development without requiring a full local deployment.
+
 ## License
 
 The code and model weights in this repository are released under the MIT License.
