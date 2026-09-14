@@ -59,10 +59,10 @@ Atria Dawn Preview 从以下四个维度赋能智能体任务，重点强化了�
 
 <div align="center">
 
-| **模型名** | **简介** | **Hugging Face** | **ModelScope** |
-| :---: | :---: | :---: | :---: |
-| Atria-Dawn-Preview | Instruct 模型 | [Model](https://huggingface.co/internlm/Atria-Dawn-Preview) | [Model](https://www.modelscope.cn/models/Shanghai_AI_Laboratory/Atria-Dawn-Preview) |
-| Atria-Dawn-Preview-FP8 | FP8量化Instruct模型 | [Model](https://huggingface.co/internlm/Atria-Dawn-Preview-FP8) | [Model](https://www.modelscope.cn/models/Shanghai_AI_Laboratory/Atria-Dawn-Preview-FP8) |
+| **模型名** | **简介** | **上下文** | **Hugging Face** | **ModelScope** |
+| :---: | :---: | :---: | :---: | :---: |
+| Atria-Dawn-Preview | Instruct 模型 | 256K | [Model](https://huggingface.co/internlm/Atria-Dawn-Preview) | [Model](https://www.modelscope.cn/models/Shanghai_AI_Laboratory/Atria-Dawn-Preview) |
+| Atria-Dawn-Preview-FP8 | FP8量化Instruct模型 | 256K| [Model](https://huggingface.co/internlm/Atria-Dawn-Preview-FP8) | [Model](https://www.modelscope.cn/models/Shanghai_AI_Laboratory/Atria-Dawn-Preview-FP8) |
 
 </div>
 
