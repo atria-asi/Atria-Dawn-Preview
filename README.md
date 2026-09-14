@@ -72,20 +72,20 @@ We conducted a comprehensive evaluation of Atria Dawn Preview. The table below p
 
 | Benchmark | Atria Dawn Preview | DeepSeek V4 Pro 0813 | KIMI K3 | Qwen 3.8 Max | GLM 5.3 | GPT 5.6 sol | Claude Opus 5 |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| AutomationBench | 54.5 | 27.3 | 45.9 | 49.7 | 49.2 | 45.7 | 49.4 |
+| AutomationBench | 53.8 | 41.7 | 45.9 | 49.7 | 49.2 | 45.7 | 49.4 |
 | BFCL v4 | 77.0 | 71.4 | 69.1 | - | 74.1 | - | - |
-| CyberGym | 86.5 | 73.8 | 78.7 | 73.8 | 84.5 | 83.6 | - |
+| CyberGym | 86.5 | 83.3 | 78.7 | 73.8 | 84.5 | 83.6 | - |
 | DeepSearchQA | 96.0 | - | 95.9 | - | 94.7 | 93.2 | - |
 | Workspace-Bench-Lite | 68.2 | 58.1 | 65.8 | 67.4 | 67.7 | 60.5 | 70.1 |
 | BrowseComp | 92.5 | 83.4 | 91.2 | - | - | 92.2 | 90.8 |
 | SkillsBench | 66.4 | 65.0 | 51.9 | 66.7 | 63.3 | 62.5 | 63.7 |
-| WorkspaceBench | 65.0 | 55.7 | 60.6 | 63.9 | 63.9 | 56.0 | 65.8 |
+| Workspace-Bench | 65.0 | 55.7 | 60.6 | 63.9 | 63.9 | 56.0 | 65.8 |
 | MLE-bench Lite | 86.2 | 86.8 | 85.8 | 81.3 | 80.8 | 88.9 | 88.0 |
 | WideSearch | 81.9 | - | 79.6 | 81.9 | 82.7 | 83.3 | - |
 | DeepResearch Bench II | 51.1 | 46.6 | 51.3 | 49.2 | 52.7 | 50.7 | 54.1 |
-| τ³-Bench Banking | 40.5 | 49.2 | 39.9 | 50.8 | 42.8 | 42.0 | 47.9 |
+| τ³-Bench Banking | 41.2 | 44.3 | 37.1 | 55.2 | 40.2 | 46.9 | 48.7 |
 | Terminal-Bench 2.1 | 78.3 | 78.7 | - | 89.3 | 85.4 | 85.1 | 90.2 |
-| GDPval | 66.4 | 52.7 | 65.5 | 75.9 | 68.2 | 69.6 | 80.0 |
+| GDPval | 1583 | 1517 | 1611 | 1722 | 1667 | 1682 | 1768 |
 | SWE-bench Pro | 59.6 | 58.3 | 61.6 | 65.1 | 60.3 | 61.4 | 74.7 |
 | JobBench | 50.3 | 54.1 | 54.3 | 52.7 | 58.2 | 45.4 | 68.0 |
 
