@@ -44,7 +44,7 @@
 
 ## Introduction
 
-Atria Dawn Preview is a preview version of a new-generation agentic model developed by the Shanghai Artificial Intelligence Laboratory. Trained on a 744B-parameter MoE foundation model, it is designed for research and engineering scenarios that require continuous environmental understanding, tool use, and multi-step task completion. The model helps users drive open-ended problems toward executable, verifiable, and reproducible results. It can support problem analysis, solution design, tool use, code implementation, experiment execution, result analysis, and failure recovery by combining task objectives with environmental feedback.
+Atria Dawn Preview is a preview version of a new-generation agentic model developed by the Shanghai Artificial Intelligence Laboratory. Built on the 744B-parameter MoE GLM-5.2 foundation model, it is designed for research and engineering scenarios that require continuous environmental understanding, tool use, and multi-step task completion. The model helps users drive open-ended problems toward executable, verifiable, and reproducible results. It can support problem analysis, solution design, tool use, code implementation, experiment execution, result analysis, and failure recovery by combining task objectives with environmental feedback.
 
 Atria Dawn Preview empowers agentic tasks across four dimensions, with a particular focus on end-to-end delivery in real-world productivity scenarios such as scientific automation and office work:
 
@@ -103,6 +103,20 @@ Add instructions for local inference, deployment, and environment setup here.
 ```bash
 # Add installation and launch commands here.
 ``` -->
+
+## Deployment & Online Access
+
+Atria Dawn Preview supports both local deployment and hosted access. For online access, use the service corresponding to your region.
+
+| Region            | Access                                                                | Tutorial                                                                  |
+| ----------------- | --------------------------------------------------------------------- | ------------------------------------------------------------------------- |
+| **International** | [Link](https://api.atria-asi.ai/)                                     | [Tutorial](https://api.atria-asi.ai/docs)                                 |
+| **China**         | [Link](https://discovery.intern-ai.org.cn/token-plan/home?tabIndex=0) | [Tutorial](https://discovery.intern-ai.org.cn/token-plan/home?tabIndex=3) |
+
+For local deployment, please refer to the following deployment guides.
+
+- [SGLang](https://github.com/sgl-project/sglang) (v0.5.13.post1+) — see [cookbook](https://cookbook.sglang.io/autoregressive/GLM/GLM-5.2)
+- [vLLM](https://github.com/vllm-project/vllm) (v0.23.0+) — see [recipes](https://recipes.vllm.ai/zai-org/GLM-5.2)
 
 ## License
 

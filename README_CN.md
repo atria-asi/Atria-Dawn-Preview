@@ -44,7 +44,7 @@
 
 ## 介绍
 
-Atria Dawn Preview 是由上海人工智能实验室研发的新一代智能体大模型预览版，模型基于744B MoE基座进行训练，面向需要持续理解环境、调用工具并完成多步任务的研究与工程场景。该模型旨在协助用户将开放性问题推进为可执行、可验证和可复现的结果。模型能够结合任务目标与环境反馈，参与问题分析、方案设计、工具调用、代码实现、实验执行、结果分析以及失败恢复等环节。
+Atria Dawn Preview 是由上海人工智能实验室研发的新一代智能体大模型预览版，模型基于 744B MoE GLM-5.2 基座进行训练，面向需要持续理解环境、调用工具并完成多步任务的研究与工程场景。该模型旨在协助用户将开放性问题推进为可执行、可验证和可复现的结果。模型能够结合任务目标与环境反馈，参与问题分析、方案设计、工具调用、代码实现、实验执行、结果分析以及失败恢复等环节。
 
 Atria Dawn Preview 从以下四个维度赋能智能体任务，重点强化了在科研自动化、办公等真实生产力场景下的端到端交付能力。
 
@@ -108,6 +108,20 @@ Atria Dawn Preview 从以下四个维度赋能智能体任务，重点强化了�
 # 在此添加安装和运行命令。
 ``` -->
 
+## 部署和在线使用
+
+Atria Dawn Preview 支持本地部署与在线调用。有关在线调用，请使用您所在地区对应的服务。
+
+| 地区                | 使用链接                                                                  | 教程                                                                        |
+| ----------------- | --------------------------------------------------------------------- | ------------------------------------------------------------------------- |
+| **国内**         | [Link](https://discovery.intern-ai.org.cn/token-plan/home?tabIndex=0) | [Tutorial](https://discovery.intern-ai.org.cn/token-plan/home?tabIndex=3) |
+| **海外** | [Link](https://api.atria-asi.ai/)                                     | [Tutorial](https://api.atria-asi.ai/docs)                                 |
+
+如需进行本地部署，请参考以下部署指南。
+
+- [SGLang](https://github.com/sgl-project/sglang) (v0.5.13.post1+) — 参考 [cookbook](https://cookbook.sglang.io/autoregressive/GLM/GLM-5.2)
+- [vLLM](https://github.com/vllm-project/vllm) (v0.23.0+) — 参考 [recipes](https://recipes.vllm.ai/zai-org/GLM-5.2)
+
 ## 许可证
 
 本仓库的代码和权重依照MIT协议开源。
@@ -119,4 +133,4 @@ Atria Dawn Preview 从以下四个维度赋能智能体任务，重点强化了�
 ``` -->
 
 ## 联系我们
-如有问题或建议，欢迎通过邮件或github等平台联系我们。
+如有问题或建议，欢迎通过邮件或GitHub等平台联系我们。
