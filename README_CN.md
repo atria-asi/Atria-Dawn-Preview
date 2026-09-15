@@ -3,6 +3,12 @@
 </p>
 <br>
 
+<div align="center">
+  <img src="assets/atria.png" width="60%" alt="Atria Dawn Preview" />
+</div>
+
+<div align="center">
+
 # Atria Dawn Preview: 从研究问题到可验证的结果
 
 <!-- markdownlint-disable first-line-h1 -->
