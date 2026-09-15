@@ -300,6 +300,14 @@ if __name__ == "__main__":
 ## 联系我们
 如有问题或建议，欢迎通过邮件或GitHub等平台联系我们。
 
+- 📱 **微信社群** — 扫描下方任一二维码加入 Atria 交流群
+
+<p align="center">
+  <img src="assets/wechat-community-1.png" alt="Atria 微信交流群 1 二维码" width="30%" />
+  <img src="assets/wechat-community-2.jpg" alt="Atria 微信交流群 2 二维码" width="30%" />
+  <img src="assets/wechat-community-3.jpg" alt="Atria 微信交流群 3 二维码" width="30%" />
+</p>
+
 ## 引用
 ```
 @misc{guo2026atriadawndawnagentic,
