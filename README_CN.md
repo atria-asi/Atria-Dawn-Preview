@@ -9,38 +9,39 @@
 <!-- markdownlint-disable html -->
 <!-- markdownlint-disable no-duplicate-header -->
 
-<div align="center">
-  <img src="assets/atria.png" width="60%" alt="Atria Dawn Preview" />
 </div>
-<hr>
-
 <div align="center" style="line-height: 1;">
   <a href="https://huggingface.co/internlm/Atria-Dawn-Preview" target="_blank" style="margin: 2px;">
-    <img alt="Hugging Face" src="https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Atria Dawn Preview-blue" style="display: inline-block; vertical-align: middle;"/>
+    <img alt="Hugging Face" src="https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Atria%20Dawn%20Preview-FFD21E?labelColor=555" style="display: inline-block; vertical-align: middle;"/>
   </a>
   <a href="https://www.modelscope.cn/models/Shanghai_AI_Laboratory/Atria-Dawn-Preview" target="_blank" style="margin: 2px;">
-    <img alt="ModelScope" src="https://img.shields.io/badge/ModelScope-Atria Dawn Preview-blue?logo=ModelScope" style="display: inline-block; vertical-align: middle;"/>
+    <img alt="ModelScope" src="https://img.shields.io/badge/ModelScope-Atria%20Dawn%20Preview-624AFF?logo=ModelScope&logoColor=white&labelColor=555" style="display: inline-block; vertical-align: middle;"/>
   </a>
-</div>
-
-<div align="center" style="line-height: 1;">
-  <a href="https://x.com/AtriaASI" target="_blank" style="margin: 2px;">
-    <img alt="Twitter Follow" src="https://img.shields.io/badge/Twitter-Atria Dawn Preview-blue?logo=x" style="display: inline-block; vertical-align: middle;"/>
-  </a>
-<a href="https://discord.gg/jT8SDt8up" target="_blank" style="margin: 2px;">
-    <img alt="Discord" src="https://img.shields.io/badge/Discord-Atria Dawn Preview-blue?logo=discord" style="display: inline-block; vertical-align: middle;"/>
-  </a>
-</div>
-
-<div align="center" style="line-height: 1;">
   <a href="LICENSE" style="margin: 2px;">
-    <img alt="License" src="https://img.shields.io/badge/License-MIT-blue" style="display: inline-block; vertical-align: middle;"/>
+    <img alt="License" src="https://img.shields.io/badge/License-MIT-3DA639?labelColor=555" style="display: inline-block; vertical-align: middle;"/>
   </a>
 </div>
-<p align="center">
-  <a href="https://atria-asi.ai/">🖥️<b>官方网站</b></a>
-  <a href="https://github.com/atria-asi/Atria-Dawn-Preview">💬<b>GitHub</b></a>
-</p>
+
+<div align="center" style="line-height: 1;">
+  <a href="https://atria-asi.ai/" target="_blank" style="margin: 2px;">
+    <img alt="Website" src="https://img.shields.io/badge/Website-atria--asi.ai-1A73E8?logo=googlechrome&logoColor=white&labelColor=555" style="display: inline-block; vertical-align: middle;"/>
+  </a>
+  <a href="https://github.com/atria-asi/Atria-Dawn-Preview" target="_blank" style="margin: 2px;">
+    <img alt="GitHub" src="https://img.shields.io/badge/GitHub-Atria--Dawn--Preview-181717?logo=github&logoColor=white&labelColor=555" style="display: inline-block; vertical-align: middle;"/>
+  </a>
+  <a href="https://x.com/AtriaASI" target="_blank" style="margin: 2px;">
+    <img alt="Twitter Follow" src="https://img.shields.io/badge/Follow-%40AtriaASI-000000?logo=x&logoColor=white&labelColor=555" style="display: inline-block; vertical-align: middle;"/>
+  </a>
+  <a href="https://discord.gg/jT8SDt8up" target="_blank" style="margin: 2px;">
+    <img alt="Discord" src="https://img.shields.io/badge/Discord-Join%20Chat-5865F2?logo=discord&logoColor=white&labelColor=555" style="display: inline-block; vertical-align: middle;"/>
+  </a>
+</div>
+
+<div align="center"  style="line-height: 1;">
+  <a href="https://arxiv.org/abs/2609.15818" target="_blank" style="margin: 2px;">
+    <img alt="arXiv" src="https://img.shields.io/badge/Paper-Atria Dawn-b31b1b?logo=arxiv&logoColor=red&labelColor=555" style="display: inline-block; vertical-align: middle;"/>
+  </a>
+</div>
 
 ## 介绍
 
