@@ -336,10 +336,6 @@ Questions, suggestions, or collaboration ideas are welcome:
 - 💬 **Community** — join us on [Discord](https://discord.gg/jT8SDt8up)
 - 🐦 **Updates** — follow [@AtriaASI](https://x.com/AtriaASI) on X
 
-<div align="center">
-  <sub>Built by the Shanghai Artificial Intelligence Laboratory.</sub>
-</div>
-
 ## Citation
 
 ```
@@ -353,3 +349,6 @@ Questions, suggestions, or collaboration ideas are welcome:
       url={https://arxiv.org/abs/2609.15818}, 
 }
 ```
+<div align="center">
+  <sub>Built by the Shanghai Artificial Intelligence Laboratory.</sub>
+</div>
