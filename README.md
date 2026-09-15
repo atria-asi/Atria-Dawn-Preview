@@ -46,7 +46,7 @@
 
 <div align="center"  style="line-height: 1;">
   <a href="https://arxiv.org/abs/2609.15818" target="_blank" style="margin: 2px;">
-    <img alt="Website" src="https://img.shields.io/badge/Paper-Atria Dawn-1A73E8?logo=arxiv&logoColor=red&labelColor=555" style="display: inline-block; vertical-align: middle;"/>
+    <img alt="arXiv" src="https://img.shields.io/badge/Paper-Atria Dawn-b31b1b?logo=arxiv&logoColor=red&labelColor=555" style="display: inline-block; vertical-align: middle;"/>
   </a>
 </div>
 
