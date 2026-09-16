@@ -304,6 +304,83 @@ if __name__ == "__main__":
     ]
 }
 ```
+### Kimi Code
+
+将自定义 provider 添加到 `~/.kimi-code/config.toml`。Kimi Code 通过兼容 OpenAI 的 Chat Completions API 与 Atria 通信。
+
+本示例适用于 Kimi Code 0.43.1 及更高版本。请先检查版本；不同版本的配置字段可能有所差异。
+
+```bash
+kimi --version
+cp -a ~/.kimi-code/config.toml ~/.kimi-code/config.toml.bak
+```
+
+#### 1. 将 provider 和模型写入用户配置
+
+将以下内容合并到 `~/.kimi-code/config.toml`。将 `default_model` 保持在顶层，并放在各个表之前。请更新已有条目，不要重复添加字段或表。将你的 `atr_...` 密钥填入 `api_key` 行中。密钥在 Atria 控制台创建，并且只会显示一次。
+
+```toml
+default_model = "atria/Atria-Dawn-Preview"
+
+[providers.atria]
+type = "openai"
+# 必须包含 /v1，Kimi 会原样追加 /chat/completions
+base_url = "https://api.atria-asi.ai/v1"
+# 只能使用字面量：不会展开 ${VAR}，也不会读取 OPENAI_API_KEY
+api_key = "ATRIA_API_KEY"
+
+[models."atria/Atria-Dawn-Preview"]
+provider = "atria"
+# 区分大小写的实际请求名称，与上面的表名不同（上面的表名是本地别名）
+model = "Atria-Dawn-Preview"
+display_name = "Atria Dawn Preview"
+# 必填：缺少此项时，该条目会静默加载失败。请保持为实际限制值，
+# 这样上下文预算和压缩功能才能正常工作。
+max_context_size = 256000
+# 发送到接口的 max_tokens 值。缺少此项时，Kimi 会改为发送 max_context_size，
+# Atria 会拒绝该请求（有效范围为 1-65536）。
+max_output_size = 65536
+# 这是纯文本模型：添加 image_in 会失败，并提示 "is not a multimodal model"。
+# 请明确声明 tool_use，否则 Kimi 会将功能视为未知。
+# "thinking" 用于开启推理功能；如果省略，effort 会被强制设为
+# "off"，并且不会发送 reasoning_effort。
+capabilities = ["tool_use", "thinking"]
+# 如果没有 support_efforts，effort 会保持为不透明的 "on"，完全不会发送
+# reasoning_effort。列出这些选项后，/think 命令和选择器才能正常工作。
+support_efforts = ["low", "medium", "high", "xhigh", "max"]
+default_effort = "max"
+# 必填，用于允许关闭 thinking。省略此项会失败，并提示 "reasons by
+# default but declares no off effort"。
+off_effort = "none"
+```
+
+由于密钥以明文存储，请确保文件权限保持私密：
+
+```bash
+chmod 600 ~/.kimi-code/config.toml
+```
+
+#### 2. 重启并验证
+
+验证配置，然后发送一个纯文本任务。
+
+```bash
+kimi doctor
+kimi provider list
+kimi
+```
+
+预期输出：
+
+```
+OK config.toml  /home/<user>/.kimi-code/config.toml
+All checked config files are valid.
+
+atria  type=openai  models=1  source=inline
+Default model: atria/Atria-Dawn-Preview
+```
+
+如果 provider 列表中没有 `atria`，说明模型条目解析失败，最常见的原因是缺少 `max_context_size`。
 
 
 ## 许可证
