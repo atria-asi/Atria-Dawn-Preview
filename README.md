@@ -322,6 +322,83 @@ This can implement interception of multimodal inputs, such as images and PDFs, i
     ]
 }
 ```
+### Kimi Code
+
+Add a custom provider to `~/.kimi-code/config.toml`. Kimi Code talks to Atria over the OpenAI-compatible Chat Completions API.
+
+This example targets Kimi Code 0.43.1 and later. Check your version first; config fields can vary between versions.
+
+```bash
+kimi --version
+cp -a ~/.kimi-code/config.toml ~/.kimi-code/config.toml.bak
+```
+
+#### 1. Write the provider and model into your user config
+
+Merge this into `~/.kimi-code/config.toml`. Keep `default_model` at the top level, before the tables. Update existing entries instead of duplicating fields or tables. Your `atr_...` key goes on the `api_key` line — keys are created in the Atria console and displayed only once.
+
+```toml
+default_model = "atria/Atria-Dawn-Preview"
+
+[providers.atria]
+type = "openai"
+# must include /v1 — Kimi appends /chat/completions verbatim
+base_url = "https://api.atria-asi.ai/v1"
+# literal value only: no ${VAR} expansion, and OPENAI_API_KEY is not read
+api_key = "ATRIA_API_KEY"
+
+[models."atria/Atria-Dawn-Preview"]
+provider = "atria"
+# case-sensitive wire name, separate from the section key above (a local alias)
+model = "Atria-Dawn-Preview"
+display_name = "Atria Dawn Preview"
+# required — without it the entry silently fails to load. Keep at the real limit
+# so context budgeting and compaction work.
+max_context_size = 256000
+# the max_tokens sent on the wire. Without it Kimi sends max_context_size
+# instead, which Atria rejects (valid range is 1-65536).
+max_output_size = 65536
+# text-only model: adding image_in fails with "is not a multimodal model".
+# Declare tool_use explicitly, or Kimi treats capabilities as unknown.
+# "thinking" is what turns reasoning on — without it the effort is forced to
+# "off" and no reasoning_effort is sent.
+capabilities = ["tool_use", "thinking"]
+# without support_efforts the effort stays the opaque "on", which sends no
+# reasoning_effort at all. Listing them makes /think and the picker work.
+support_efforts = ["low", "medium", "high", "xhigh", "max"]
+default_effort = "max"
+# required to allow turning thinking off. Omitting it fails with "reasons by
+# default but declares no off effort".
+off_effort = "none"
+```
+
+Keep the file private, since the key is stored in plaintext:
+
+```bash
+chmod 600 ~/.kimi-code/config.toml
+```
+
+#### 2. Restart and verify
+
+Validate the config, then send a text-only task.
+
+```bash
+kimi doctor
+kimi provider list
+kimi
+```
+
+Expected:
+
+```
+OK config.toml  /home/<user>/.kimi-code/config.toml
+All checked config files are valid.
+
+atria  type=openai  models=1  source=inline
+Default model: atria/Atria-Dawn-Preview
+```
+
+If `atria` is missing from the provider list, the model entry failed to resolve — most often an absent `max_context_size`.
 
 
 ## 📄 License
