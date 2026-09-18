@@ -417,13 +417,11 @@ Questions, suggestions, or collaboration ideas are welcome:
 
 - 🐛 **Issues & feature requests** — open an issue on [GitHub](https://github.com/atria-asi/Atria-Dawn-Preview/issues)
 - 💬 **Community** — join us on [Discord](https://discord.gg/jT8SDt8up)
-- 📱 **WeChat** — scan one of the QR codes below to join an Atria community group
+- 📱 **WeChat** — scan the QR code below to join Atria community group 7
 - 🐦 **Updates** — follow [@AtriaASI](https://x.com/AtriaASI) on X
 
 <p align="center">
-  <img src="assets/wechat-community-1.png" alt="Atria WeChat community group 1 QR code" width="30%" />
-  <img src="assets/wechat-community-2.jpg" alt="Atria WeChat community group 2 QR code" width="30%" />
-  <img src="assets/wechat-community-3.jpg" alt="Atria WeChat community group 3 QR code" width="30%" />
+  <img src="assets/wechat-community-7.jpg" alt="Atria WeChat community group 7 QR code" width="320" />
 </p>
 
 ## Citation
